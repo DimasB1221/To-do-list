@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission 4: To Do List</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icons (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <main class="app-container">
+      <!-- Header Section -->
+      <header class="app-header">
+        <div class="profile-section" id="profile-container">
+          <div class="avatar">
+            <i class="ph ph-user"></i>
+          </div>
+          <div class="user-info">
+            <h2 id="user-name">Guest User</h2>
+            <p id="user-job">Job Title</p>
+          </div>
+          <button id="edit-profile-btn" class="icon-btn" title="Edit Profile">
+            <i class="ph ph-pencil-simple"></i>
+          </button>
+        </div>
+
+        <div class="time-section">
+          <h1 id="current-day">Monday</h1>
+          <p id="current-date">01 January 2024</p>
+        </div>
+      </header>
+
+      <!-- Input Section -->
+      <section class="input-section">
+        <div class="input-wrapper">
+          <textarea
+            id="task-input"
+            placeholder="What keeps you busy today?"
+            rows="2"
+          ></textarea>
+        </div>
+
+        <div class="controls-wrapper">
+          <div class="priority-selector">
+            <span class="label">Priority:</span>
+            <div class="radio-group">
+              <label class="radio-label low">
+                <input type="radio" name="priority" value="low" checked />
+                <span class="custom-radio">Low</span>
+              </label>
+              <label class="radio-label medium">
+                <input type="radio" name="priority" value="medium" />
+                <span class="custom-radio">Medium</span>
+              </label>
+              <label class="radio-label high">
+                <input type="radio" name="priority" value="high" />
+                <span class="custom-radio">High</span>
+              </label>
+            </div>
+          </div>
+          <button id="submit-btn" class="btn-primary">
+            <i class="ph ph-plus"></i> Add Value
+          </button>
+        </div>
+      </section>
+
+      <!-- Tasks Section -->
+      <section class="lists-section">
+        <!-- To Do Column -->
+        <div class="list-column">
+          <div class="column-header">
+            <h3>To Do <span class="count-badge" id="todo-count">0</span></h3>
+          </div>
+          <div id="todo-list" class="task-list">
+            <!-- Tasks will be injected here -->
+            <div class="empty-state">
+              <i class="ph ph-list-checks"></i>
+              <p>No tasks yet. Start by adding one!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Done Column -->
+        <div class="list-column">
+          <div class="column-header">
+            <h3>Done <span class="count-badge" id="done-count">0</span></h3>
+          </div>
+          <div id="done-list" class="task-list completed-list">
+            <!-- Completed tasks will be injected here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Actions -->
+      <footer class="app-footer">
+        <button id="delete-all-btn" class="btn-danger">
+          <i class="ph ph-trash"></i> Delete All Tasks
+        </button>
+      </footer>
+    </main>
+
+    <!-- Modal for Profile (Simple overlay) -->
+    <div id="profile-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Welcome!</h3>
+        <p>Please tell us who you are.</p>
+        <input type="text" id="modal-name" placeholder="Your Name" />
+        <input type="text" id="modal-job" placeholder="Your Job / Role" />
+        <button id="save-profile-btn" class="btn-primary">Let's Go</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
